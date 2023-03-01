@@ -1,0 +1,24 @@
+
+ Show databases:
+=================
+show dbs
+create database:
+==================
+use shop 
+create collections:
+===================
+db.products
+insert data:
+============
+db.products.insertOne({name: "Harry Potter Book", price:320})
+db.products.insertOne({name: "Laptop", price:4000,description:"can carry",details:{brand:"Acer",processor:"i7",memory:"16GB"}})
+find data:
+=========
+db.products.find()
+To find a particular id:
+=========================
+db.products.find("63ff860217ca872529326d1a")
+use gte and lte:
+================
+db.products.find({"price":{$gt:200, $lt:400}}).forEach(print);
+
