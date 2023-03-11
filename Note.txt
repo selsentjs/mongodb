@@ -24,9 +24,11 @@ db.products.find({"price":{$gt:200, $lt:400}}).forEach(print);
 find particular field:
 ======================
 db.products.find({"name":"Laptop"})
+
 find data from nested field:
 ============================
 db.employee.find({"details.position":"HR"})
+
 sort:
 =====
  db.products.find().sort({"Price":-1})
@@ -37,6 +39,10 @@ sort:
     {name:"Banu", details:{position:"HR", salary:25000}}
     
     ])
+$gt and $lt (find salary is greater than 30000 and less than 40000):
+====================================================================
+db.employee.find({"details.salary":{$gt:30000, $lt:40000}});
+
 update name from Banu to Bala
 ===============================
 db.employee.updateOne({name:"Banu"},{$set:{name:"Bala"}})
@@ -44,3 +50,5 @@ db.employee.updateOne({name:"Banu"},{$set:{name:"Bala"}})
 update front end developer salary 50000 from selvi(40000), Ajay(34000):
 ========================================================================
 db.employee.updateMany({"details.position":"Front end developer"}, {$set:{"details.salary":50000}})
+
+
